@@ -1,22 +1,489 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SimpliTI-A — Infrastructure, DevOps & support, done simply." />
   <title>SimpliTI-A</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.16);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% 15%, rgba(139,92,246,.35), transparent 60%),
+        radial-gradient(900px 520px at 85% 20%, rgba(34,197,94,.28), transparent 58%),
+        radial-gradient(900px 520px at 45% 95%, rgba(59,130,246,.22), transparent 58%),
+        linear-gradient(180deg, #070a14 0%, var(--bg) 45%, #060816 100%);
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 20px 54px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 10px 0 22px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.75), transparent 55%),
+        linear-gradient(135deg, rgba(139,92,246,.9), rgba(59,130,246,.85));
+      box-shadow: 0 10px 30px rgba(139,92,246,.25);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand h1{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .brand small{
+      display:block;
+      font-size:12px;
+      color: var(--muted);
+      margin-top:2px;
+      letter-spacing:.2px;
+    }
+    .lang{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      background: var(--card);
+      border:1px solid var(--line);
+      padding:8px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
+    }
+    .lang button{
+      border:0;
+      background:transparent;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+    .lang button.active{
+      color: var(--text);
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items:stretch;
+      margin-top: 10px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      backdrop-filter: blur(10px);
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:99px;
+      background: rgba(34,197,94,.9);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.14);
+    }
+
+    h2{
+      margin: 14px 0 10px;
+      font-size: 34px;
+      line-height: 1.12;
+      letter-spacing: -0.6px;
+    }
+    p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .ctaRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap:12px;
+      margin-top: 18px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.2px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      color: var(--text);
+      box-shadow: 0 12px 30px rgba(0,0,0,.20);
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(139,92,246,.95), rgba(59,130,246,.95));
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .btn:hover{transform: translateY(-1px);}
+    .btn:active{transform: translateY(0px);}
+
+    .mini{
+      font-size: 13px;
+      color: rgba(255,255,255,.64);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      height:100%;
+    }
+    .kpi{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .pill{
+      background: rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      padding: 14px 14px;
+    }
+    .pill strong{
+      display:block;
+      font-size: 14px;
+      letter-spacing:.2px;
+      margin-bottom: 6px;
+    }
+    .pill span{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap:10px;
+    }
+    .li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .icon{
+      width:34px;height:34px;border-radius: 12px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
+      flex: 0 0 auto;
+      margin-top:2px;
+    }
+    .li b{display:block; font-size: 14px; margin-bottom:4px;}
+    .li div{color: var(--muted); font-size: 13px; line-height: 1.45;}
+
+    .section{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .section{grid-template-columns: 1fr;}
+    }
+
+    footer{
+      margin-top: 26px;
+      padding: 18px 2px 0;
+      color: rgba(255,255,255,.55);
+      font-size: 12px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .hide{display:none}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 700px; margin: 60px auto; line-height: 1.6;">
-  <h1>SimpliTI-A</h1>
-  <p><strong>Simplificando TI com o Conceito A.</strong></p>
 
-  <p>
-    Serviços de infraestrutura, DevOps e suporte técnico
-    para organizações pequenas que precisam de estabilidade
-    sem complexidade desnecessária.
-  </p>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#" aria-label="SimpliTI-A">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>SimpliTI-A</h1>
+          <small class="mono" id="subtitle">Infrastructure • DevOps • Support</small>
+        </div>
+      </a>
 
-  <p>
-    📩 Contato: <a href="mailto:contato@simplitia.com">contato@simplitia.com</a>
-  </p>
-</body>
+      <div class="lang" role="group" aria-label="Language switcher">
+        <button id="btnEN" class="active" type="button">EN</button>
+        <button id="btnFR" type="button">FR</button>
+      </div>
+    </header>
+
+    <main class="hero">
+      <!-- Left: hero -->
+      <section class="card">
+        <div class="badge"><span class="dot"></span><span id="badgeText">Calm, reliable ops — without unnecessary complexity.</span></div>
+
+        <!-- EN -->
+        <div id="contentEN">
+          <h2>Simplify your infrastructure.<br>Keep it stable. Keep it human.</h2>
+          <p>
+            I help small organizations run cloud and systems with fewer surprises:
+            pragmatic DevOps, clean processes, and support that actually answers.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="mailto:contact@simplitia.com?subject=SimpliTI-A%20-%20Inquiry">Email me</a>
+            <a class="btn" href="#services" onclick="scrollToServices(event)">What I do</a>
+            <span class="mini">Based in Montréal / available remotely.</span>
+          </div>
+
+          <div class="section" id="services">
+            <div class="pill">
+              <strong>Managed Infrastructure</strong>
+              <span>Monitoring, backups, patching, access control, and steady operations.</span>
+            </div>
+            <div class="pill">
+              <strong>DevOps & Delivery</strong>
+              <span>CI/CD, IaC, environments, deployments that don’t break your week.</span>
+            </div>
+            <div class="pill">
+              <strong>Security Basics</strong>
+              <span>Least privilege, audits, hardening, incident readiness.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FR -->
+        <div id="contentFR" class="hide">
+          <h2>Rendre l’infra simple.<br>Stable. Et humaine.</h2>
+          <p>
+            J’aide les petites organisations à gérer leur cloud et leurs systèmes avec moins de surprises :
+            DevOps pragmatique, processus propres, et support qui répond vraiment.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="mailto:contact@simplitia.com?subject=SimpliTI-A%20-%20Demande">M’écrire</a>
+            <a class="btn" href="#services" onclick="scrollToServices(event)">Ce que je fais</a>
+            <span class="mini">Basé à Montréal / disponible à distance.</span>
+          </div>
+
+          <div class="section" id="servicesFR">
+            <div class="pill">
+              <strong>Infrastructure gérée</strong>
+              <span>Supervision, sauvegardes, mises à jour, contrôle d’accès, opérations stables.</span>
+            </div>
+            <div class="pill">
+              <strong>DevOps & livraison</strong>
+              <span>CI/CD, IaC, environnements, déploiements sans drame.</span>
+            </div>
+            <div class="pill">
+              <strong>Socle sécurité</strong>
+              <span>Moindre privilège, audits, durcissement, préparation incidents.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: offerings + contact -->
+      <aside class="card">
+        <div class="grid">
+          <div class="kpi">
+            <div class="pill">
+              <strong id="kpi1Title">Focus</strong>
+              <span id="kpi1Text">Small orgs, lean teams, real-world constraints.</span>
+            </div>
+            <div class="pill">
+              <strong id="kpi2Title">Style</strong>
+              <span id="kpi2Text">Simple choices, clear docs, no overengineering.</span>
+            </div>
+          </div>
+
+          <ul class="list" aria-label="Highlights">
+            <li class="li">
+              <div class="icon" aria-hidden="true">⚙️</div>
+              <div>
+                <b id="h1Title">One channel, clear rules</b>
+                <div id="h1Text">Support starts by email, with defined response times.</div>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true">🧭</div>
+              <div>
+                <b id="h2Title">Pragmatic governance</b>
+                <div id="h2Text">Access, ownership, change tracking — kept lightweight.</div>
+              </div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true">🛡️</div>
+              <div>
+                <b id="h3Title">Security without theater</b>
+                <div id="h3Text">Solid basics first. Fancy stuff only when it pays off.</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="pill">
+            <strong id="contactTitle">Contact</strong>
+            <span>
+              <span id="contactLine">Email:</span>
+              <a class="mono" href="mailto:contact@simplitia.com">contact@simplitia.com</a><br>
+              <span class="mini" id="contactNote">Tell me what you’re trying to stabilize, and what hurts right now.</span>
+            </span>
+          </div>
+
+          <div class="pill">
+            <strong id="noteTitle">Note</strong>
+            <span id="noteText">This page is intentionally simple. The work happens in the infrastructure.</span>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> SimpliTI-A • <span id="footerTag">Simple ops, done right.</span></div>
+      <div class="mono">GitHub Pages • Static landing</div>
+    </footer>
+  </div>
+
+  <script>
+    const btnEN = document.getElementById('btnEN');
+    const btnFR = document.getElementById('btnFR');
+
+    const contentEN = document.getElementById('contentEN');
+    const contentFR = document.getElementById('contentFR');
+
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    function setLang(lang){
+      const isEN = lang === 'EN';
+      btnEN.classList.toggle('active', isEN);
+      btnFR.classList.toggle('active', !isEN);
+
+      contentEN.classList.toggle('hide', !isEN);
+      contentFR.classList.toggle('hide', isEN);
+
+      // Small right-side copy
+      document.getElementById('subtitle').textContent = isEN
+        ? 'Infrastructure • DevOps • Support'
+        : 'Infrastructure • DevOps • Support';
+
+      document.getElementById('badgeText').textContent = isEN
+        ? 'Calm, reliable ops — without unnecessary complexity.'
+        : 'Des opérations calmes et fiables — sans complexité inutile.';
+
+      document.getElementById('kpi1Title').textContent = isEN ? 'Focus' : 'Focus';
+      document.getElementById('kpi1Text').textContent = isEN
+        ? 'Small orgs, lean teams, real-world constraints.'
+        : 'Petites équipes, contraintes réelles, solutions utiles.';
+
+      document.getElementById('kpi2Title').textContent = isEN ? 'Style' : 'Style';
+      document.getElementById('kpi2Text').textContent = isEN
+        ? 'Simple choices, clear docs, no overengineering.'
+        : 'Choix simples, docs claires, pas d’overengineering.';
+
+      document.getElementById('h1Title').textContent = isEN ? 'One channel, clear rules' : 'Un canal, des règles claires';
+      document.getElementById('h1Text').textContent = isEN
+        ? 'Support starts by email, with defined response times.'
+        : 'Support par e-mail, avec des délais de réponse définis.';
+
+      document.getElementById('h2Title').textContent = isEN ? 'Pragmatic governance' : 'Gouvernance pragmatique';
+      document.getElementById('h2Text').textContent = isEN
+        ? 'Access, ownership, change tracking — kept lightweight.'
+        : 'Accès, responsabilités, suivi des changements — en version légère.';
+
+      document.getElementById('h3Title').textContent = isEN ? 'Security without theater' : 'Sécurité sans théâtre';
+      document.getElementById('h3Text').textContent = isEN
+        ? 'Solid basics first. Fancy stuff only when it pays off.'
+        : 'D’abord les bases solides. Le reste seulement si ça vaut le coût.';
+
+      document.getElementById('contactTitle').textContent = isEN ? 'Contact' : 'Contact';
+      document.getElementById('contactLine').textContent = isEN ? 'Email:' : 'E-mail :';
+      document.getElementById('contactNote').textContent = isEN
+        ? 'Tell me what you’re trying to stabilize, and what hurts right now.'
+        : 'Dites-moi ce que vous voulez stabiliser — et ce qui fait mal en ce moment.';
+
+      document.getElementById('noteTitle').textContent = isEN ? 'Note' : 'Note';
+      document.getElementById('noteText').textContent = isEN
+        ? 'This page is intentionally simple. The work happens in the infrastructure.'
+        : 'Cette page est volontairement simple. Le vrai travail se fait dans l’infrastructure.';
+
+      document.getElementById('footerTag').textContent = isEN
+        ? 'Simple ops, done right.'
+        : 'Ops simples, bien faites.';
+    }
+
+    function scrollToServices(e){
+      e.preventDefault();
+      const target = document.getElementById(btnEN.classList.contains('active') ? 'services' : 'servicesFR');
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // Default: EN
+    setLang('EN');
+
+    btnEN.addEventListener('click', () => setLang('EN'));
+    btnFR.addEventListener('click', () => setLang('FR'));
+  </script>
 </html>
