@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SimpliTI-A — Technical support (N1/N2/N3) and managed IT services." />
+  <meta name="description" content="SimpliTI-A — Support TI (N1/N2/N3), services gérés et architecture infonuagique." />
   <title>SimpliTI-A</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -15,33 +15,36 @@
         <div class="logo" aria-hidden="true"></div>
         <div>
           <h1>SimpliTI-A</h1>
-          <small class="mono" id="subtitle">Technical Support • Managed Services • Backup</small>
+          <small class="mono" id="subtitle">Support TI • Services gérés • Infonuagique</small>
         </div>
       </a>
 
       <div class="lang" role="group" aria-label="Language switcher">
-        <button id="btnEN" class="active" type="button">EN</button>
-        <button id="btnFR" type="button">FR</button>
+        <button id="btnEN" type="button">EN</button>
+        <button id="btnFR" class="active" type="button">FR</button>
       </div>
     </header>
 
     <main class="hero">
       <!-- Left: hero -->
       <section class="card">
-        <div class="badge"><span class="dot"></span><span id="badgeText">Reliable IT support & managed services — without unnecessary complexity.</span></div>
+        <div class="badge">
+          <span class="dot"></span>
+          <span id="badgeText">📍 Montréal • Support TI et services gérés fiables — sans complexité inutile.</span>
+        </div>
 
         <!-- EN -->
-        <div id="contentEN">
-          <h2>Technical support that stays calm.<br>Managed services that keep things stable.</h2>
+        <div id="contentEN" class="hide">
+          <h2>Calm IT support.<br>Managed services that keep things stable.</h2>
           <p>
-            SimpliTI-A provides structured IT support (N1 / N2 / N3) and managed services for small organizations.
-            Clear communication, predictable operations, and practical documentation — no theater.
+            SimpliTI-A is a Montréal-based IT services company with a competent team and real-world experience.
+            We operate with clear communication, predictable processes, and documentation that holds up over time.
           </p>
 
           <div class="ctaRow">
-            <a class="btn primary" href="mailto:contact@simplitia.com?subject=SimpliTI-A%20-%20Inquiry">Contact us</a>
+            <a class="btn primary" href="mailto:contact@simplitia.com?subject=SimpliTI-A%20-%20Inquiry">Contact</a>
             <a class="btn" href="#services" onclick="scrollToServices(event)">Services</a>
-            <span class="mini">Montréal-based • remote-friendly.</span>
+            <span class="mini">📍 Montréal • Service available remotely.</span>
           </div>
 
           <div class="section" id="services">
@@ -51,27 +54,27 @@
             </div>
             <div class="pill">
               <strong>Managed IT Services</strong>
-              <span>Monitoring, patching, access control, and day-to-day operations.</span>
+              <span>Monitoring, patching, access control, and steady operations.</span>
             </div>
             <div class="pill">
-              <strong>Backup & Continuity</strong>
-              <span>Backup strategy, retention, restore testing, and recovery readiness.</span>
+              <strong>Cloud Architecture</strong>
+              <span>AWS, Azure & Google Cloud: design, review, and practical recommendations.</span>
             </div>
           </div>
         </div>
 
         <!-- FR -->
-        <div id="contentFR" class="hide">
-          <h2>Un support technique serein.<br>Des services gérés qui stabilisent.</h2>
+        <div id="contentFR">
+          <h2>Un support TI serein.<br>Des services gérés qui stabilisent.</h2>
           <p>
-            SimpliTI-A fournit un support TI structuré (N1 / N2 / N3) et des services gérés pour les petites organisations.
-            Communication claire, opérations prévisibles et documentation pratique — sans théâtre.
+            SimpliTI-A est une entreprise de services TI montréalaise, portée par une équipe compétente et expérimentée.
+            Notre approche privilégie la clarté, la traçabilité et des méthodes pragmatiques — sans complexité inutile.
           </p>
 
           <div class="ctaRow">
             <a class="btn primary" href="mailto:contact@simplitia.com?subject=SimpliTI-A%20-%20Demande">Nous contacter</a>
             <a class="btn" href="#services" onclick="scrollToServices(event)">Services</a>
-            <span class="mini">Basé à Montréal • disponible à distance.</span>
+            <span class="mini">📍 Montréal • disponible à distance.</span>
           </div>
 
           <div class="section" id="servicesFR">
@@ -81,11 +84,11 @@
             </div>
             <div class="pill">
               <strong>Services TI gérés</strong>
-              <span>Supervision, mises à jour, contrôle d’accès et opérations quotidiennes.</span>
+              <span>Supervision, mises à jour, contrôle d’accès et opérations stables.</span>
             </div>
             <div class="pill">
-              <strong>Sauvegarde & Continuité</strong>
-              <span>Stratégie de sauvegarde, rétention, tests de restauration et préparation reprise.</span>
+              <strong>Architecture infonuagique</strong>
+              <span>AWS, Azure et Google Cloud : conception, revue et recommandations pragmatiques.</span>
             </div>
           </div>
         </div>
@@ -96,12 +99,12 @@
         <div class="grid">
           <div class="kpi">
             <div class="pill">
-              <strong id="kpi1Title">Scope</strong>
-              <span id="kpi1Text">Support, managed services, backup and operational stability.</span>
+              <strong id="kpi1Title">Périmètre</strong>
+              <span id="kpi1Text">Support N1/N2/N3, services gérés et architecture infonuagique.</span>
             </div>
             <div class="pill">
-              <strong id="kpi2Title">Approach</strong>
-              <span id="kpi2Text">Simple choices, clear rules, and documentation that survives time.</span>
+              <strong id="kpi2Title">Approche</strong>
+              <span id="kpi2Text">Choix simples, règles claires et documentation durable.</span>
             </div>
           </div>
 
@@ -109,22 +112,22 @@
             <li class="li">
               <div class="icon" aria-hidden="true">📩</div>
               <div>
-                <b id="h1Title">One official channel</b>
-                <div id="h1Text">Requests start by email, with defined response times.</div>
+                <b id="h1Title">Un canal officiel</b>
+                <div id="h1Text">Les demandes passent par e-mail, avec des délais de réponse définis.</div>
               </div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true">🧾</div>
               <div>
-                <b id="h2Title">Traceable work</b>
-                <div id="h2Text">Actions are documented: what changed, why, and how to roll back.</div>
+                <b id="h2Title">Travail traçable</b>
+                <div id="h2Text">Ce qui change est documenté : quoi, pourquoi, et comment revenir en arrière.</div>
               </div>
             </li>
             <li class="li">
               <div class="icon" aria-hidden="true">🧯</div>
               <div>
-                <b id="h3Title">No-drama operations</b>
-                <div id="h3Text">Stability first: backups, access, updates, and predictable routines.</div>
+                <b id="h3Title">Opérations sans drame</b>
+                <div id="h3Text">Stabilité d’abord : accès, mises à jour, routines prévisibles, incidents gérés proprement.</div>
               </div>
             </li>
           </ul>
@@ -132,22 +135,22 @@
           <div class="pill">
             <strong id="contactTitle">Contact</strong>
             <span>
-              <span id="contactLine">Email:</span>
+              <span id="contactLine">E-mail :</span>
               <a class="mono" href="mailto:contact@simplitia.com">contact@simplitia.com</a><br>
-              <span class="mini" id="contactNote">Share your context (size, tools, pain points). We’ll propose a simple next step.</span>
+              <span class="mini" id="contactNote">Indiquez votre contexte (taille, outils, irritants). Nous proposerons une prochaine étape simple.</span>
             </span>
           </div>
 
           <div class="pill">
             <strong id="noteTitle">Note</strong>
-            <span id="noteText">This page is intentionally simple. The priority is stable operations and clear communication.</span>
+            <span id="noteText">Cette page est volontairement simple. Priorité : stabilité, traçabilité et communication claire.</span>
           </div>
         </div>
       </aside>
     </main>
 
     <footer>
-      <div>© <span id="year"></span> SimpliTI-A • <span id="footerTag">Support & managed services, done right.</span></div>
+      <div>© <span id="year"></span> SimpliTI-A • <span id="footerTag">Support et services gérés, bien faits.</span></div>
       <div class="mono">GitHub Pages • Static landing</div>
     </footer>
   </div>
@@ -172,56 +175,56 @@
 
       // Subtitle
       document.getElementById('subtitle').textContent = isEN
-        ? 'Technical Support • Managed Services • Backup'
-        : 'Support TI • Services gérés • Sauvegarde';
+        ? 'Technical Support • Managed Services • Cloud'
+        : 'Support TI • Services gérés • Infonuagique';
 
-      // Badge
+      // Badge (single place for location pin)
       document.getElementById('badgeText').textContent = isEN
-        ? 'Reliable IT support & managed services — without unnecessary complexity.'
-        : 'Support TI fiable et services gérés — sans complexité inutile.';
+        ? '📍 Montréal • Reliable IT support & managed services — without unnecessary complexity.'
+        : '📍 Montréal • Support TI et services gérés fiables — sans complexité inutile.';
 
       // Right-side KPIs
       document.getElementById('kpi1Title').textContent = isEN ? 'Scope' : 'Périmètre';
       document.getElementById('kpi1Text').textContent = isEN
-        ? 'Support, managed services, backup and operational stability.'
-        : 'Support, services gérés, sauvegarde et stabilité opérationnelle.';
+        ? 'N1/N2/N3 support, managed services, and cloud architecture.'
+        : 'Support N1/N2/N3, services gérés et architecture infonuagique.';
 
       document.getElementById('kpi2Title').textContent = isEN ? 'Approach' : 'Approche';
       document.getElementById('kpi2Text').textContent = isEN
-        ? 'Simple choices, clear rules, and documentation that survives time.'
+        ? 'Simple choices, clear rules, and durable documentation.'
         : 'Choix simples, règles claires et documentation durable.';
 
       // Highlights
       document.getElementById('h1Title').textContent = isEN ? 'One official channel' : 'Un canal officiel';
       document.getElementById('h1Text').textContent = isEN
         ? 'Requests start by email, with defined response times.'
-        : 'Les demandes commencent par e-mail, avec des délais de réponse définis.';
+        : 'Les demandes passent par e-mail, avec des délais de réponse définis.';
 
       document.getElementById('h2Title').textContent = isEN ? 'Traceable work' : 'Travail traçable';
       document.getElementById('h2Text').textContent = isEN
-        ? 'Actions are documented: what changed, why, and how to roll back.'
-        : 'Les actions sont documentées : quoi, pourquoi et comment revenir en arrière.';
+        ? 'Changes are documented: what, why, and how to roll back.'
+        : 'Ce qui change est documenté : quoi, pourquoi, et comment revenir en arrière.';
 
       document.getElementById('h3Title').textContent = isEN ? 'No-drama operations' : 'Opérations sans drame';
       document.getElementById('h3Text').textContent = isEN
-        ? 'Stability first: backups, access, updates, and predictable routines.'
-        : 'Stabilité d’abord : sauvegardes, accès, mises à jour et routines prévisibles.';
+        ? 'Stability first: access, updates, predictable routines, clean incident handling.'
+        : 'Stabilité d’abord : accès, mises à jour, routines prévisibles, incidents gérés proprement.';
 
       // Contact block
       document.getElementById('contactTitle').textContent = isEN ? 'Contact' : 'Contact';
       document.getElementById('contactLine').textContent = isEN ? 'Email:' : 'E-mail :';
       document.getElementById('contactNote').textContent = isEN
         ? 'Share your context (size, tools, pain points). We’ll propose a simple next step.'
-        : 'Partagez le contexte (taille, outils, irritants). Nous proposerons une prochaine étape simple.';
+        : 'Indiquez votre contexte (taille, outils, irritants). Nous proposerons une prochaine étape simple.';
 
       // Note + footer tag
       document.getElementById('noteTitle').textContent = isEN ? 'Note' : 'Note';
       document.getElementById('noteText').textContent = isEN
-        ? 'This page is intentionally simple. The priority is stable operations and clear communication.'
-        : 'Cette page est volontairement simple. La priorité : stabilité et communication claire.';
+        ? 'This page is intentionally simple. Priority: stability, traceability, and clear communication.'
+        : 'Cette page est volontairement simple. Priorité : stabilité, traçabilité et communication claire.';
 
       document.getElementById('footerTag').textContent = isEN
-        ? 'Support & managed services, done right.'
+        ? 'Support and managed services, done right.'
         : 'Support et services gérés, bien faits.';
     }
 
@@ -231,8 +234,8 @@
       if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
     }
 
-    // Default: EN
-    setLang('EN');
+    // Default language: FR
+    setLang('FR');
 
     btnEN.addEventListener('click', () => setLang('EN'));
     btnFR.addEventListener('click', () => setLang('FR'));
