@@ -41,13 +41,12 @@ header{
   text-decoration:none;
 }
 .logo{
-  width:44px;height:44px;border-radius:14px;
-  background:
-    radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.75), transparent 55%),
-    linear-gradient(135deg, rgba(139,92,246,.9), rgba(59,130,246,.85));
-  box-shadow: 0 10px 30px rgba(139,92,246,.25);
-  border:1px solid rgba(255,255,255,.18);
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  display: block;
 }
+
 .brand h1{
   margin:0;
   font-size:18px;
