@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="SimpliTI-A — Support TI (N1/N2/N3), services gérés et architecture infonuagique." />
-  <title>SimpliTI-A</title>
+  <meta 
+    name="description"
+    content="SimpliTI-A offre du support TI N1/N2/N3, des services gérés et de l’architecture infonuagique pour OBNL et PME à Montréal et à distance." 
+  />
+  <title>SimpliTI-A | Support TI, services gérés et architecture infonuagique à Montréal</title>
   <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
   <link rel="stylesheet" href="./styles.css" />
@@ -51,12 +54,11 @@
             We operate with clear communication, predictable processes, and documentation that holds up over time.
           </p>
 
-          <div class="ctaRow">
-            <a class="btn" href="#services" onclick="scrollToServices(event)">Services</a>
-            <a class="btn primary" href="mailto:info@simplitia.ca?subject=SimpliTI-A%20-%20Inquiry">Contact</a>
-          </div>
-
           <div class="section" id="services">
+            <div class="pill">
+              <strong>Specialized IT consulting</strong>
+              <span>Specialized IT consulting services for non-profit organizations, small and medium-sized enterprises.</span>
+            </div>
             <div class="pill">
               <strong>Support N1 / N2 / N3</strong>
               <span>Requests, incidents, troubleshooting, escalation, and follow-up.</span>
@@ -67,7 +69,7 @@
             </div>
             <div class="pill">
               <strong>Cloud Architecture</strong>
-              <span>AWS, Azure & Google Cloud: design, review, and practical recommendations.</span>
+              <span>AWS & Google Cloud: design, review, and practical recommendations.</span>
             </div>
           </div>
         </div>
@@ -80,15 +82,15 @@
             Notre approche privilégie la clarté, la traçabilité et des méthodes pragmatiques - sans complexité inutile.
           </p>
 
-          <div class="ctaRow">
-            <a class="btn" href="#services" onclick="scrollToServices(event)">Services</a>
-            <a class="btn primary" href="mailto:info@simplitia.ca?subject=SimpliTI-A%20-%20Demande">Nous contacter</a>
-          </div>
 
           <div class="section" id="servicesFR">
             <div class="pill">
-              <strong>Support N1 / N2 / N3</strong>
-              <span>Demandes, incidents, diagnostic, escalade et suivi.</span>
+              <strong>Conseil spécialisé en informatique</strong>
+              <span>Services de conseil spécialisés pour les OBNL et les PME.</span>
+            </div>
+            <div class="pill">
+              <strong>Support technique</strong>
+              <span>Demandes, incidents, diagnostic, escalade et suivi (N1 / N2 / N3).</span>
             </div>
             <div class="pill">
               <strong>Services TI gérés</strong>
@@ -96,7 +98,7 @@
             </div>
             <div class="pill">
               <strong>Architecture infonuagique</strong>
-              <span>AWS, Azure et Google Cloud : conception, revue et recommandations pragmatiques.</span>
+              <span>AWS et Google Cloud : conception, revue et recommandations pragmatiques.</span>
             </div>
           </div>
         </div>
@@ -105,16 +107,6 @@
       <!-- Right: offerings + contact -->
       <aside class="card">
         <div class="grid">
-          <div class="kpi">
-            <div class="pill">
-              <strong id="kpi1Title">Périmètre</strong>
-              <span id="kpi1Text">Support N1/N2/N3, services gérés et architecture infonuagique.</span>
-            </div>
-            <div class="pill">
-              <strong id="kpi2Title">Approche</strong>
-              <span id="kpi2Text">Choix simples, règles claires et documentation durable.</span>
-            </div>
-          </div>
 
           <ul class="list" aria-label="Highlights">
             <li class="li">
@@ -193,17 +185,6 @@
         ? '📍 Montréal-based • Available remotely'
         : '📍 Basé à Montréal • Disponible à distance';
 
-      // Right-side KPIs
-      document.getElementById('kpi1Title').textContent = isEN ? 'Scope' : 'Périmètre';
-      document.getElementById('kpi1Text').textContent = isEN
-        ? 'N1/N2/N3 support, managed services, and cloud architecture.'
-        : 'Support N1/N2/N3, services gérés et architecture infonuagique.';
-
-      document.getElementById('kpi2Title').textContent = isEN ? 'Approach' : 'Approche';
-      document.getElementById('kpi2Text').textContent = isEN
-        ? 'Simple choices, clear rules, and durable documentation.'
-        : 'Choix simples, règles claires et documentation durable.';
-
       // Highlights
       document.getElementById('h1Title').textContent = isEN ? 'Pragmatic approach' : 'Approche pragmatique';
       document.getElementById('h1Text').textContent = isEN
@@ -251,4 +232,19 @@
     btnEN.addEventListener('click', () => setLang('EN'));
     btnFR.addEventListener('click', () => setLang('FR'));
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ITService",
+      "name": "SimpliTI-A",
+      "url": "https://simplitia.ca",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Montréal, QC, Canada"
+      },
+      "email": "info@simplitia.ca",
+      "description": "Support TI, services gérés et architecture infonuagique pour OBNL et PME."
+    }
+  </script>
+
 </html>
